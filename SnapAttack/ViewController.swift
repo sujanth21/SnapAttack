@@ -42,15 +42,29 @@ class ViewController: UIViewController {
             cardTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCards), userInfo: nil, repeats: true)
         }
         
+        if gameMode == 1 {
+            
+            if firstCard.image == secondCard.image {
+                scoreInt += 1
+                scoreLabel.text = "Score: \(scoreInt)"
+            } else {
+                scoreInt -= 1
+                scoreLabel.text = "Score: \(scoreInt)"
+            }
+        }
+        
     }
     
     @objc func updateTimer() {
         timeInt -= 1
         timeLabel.text = "Time: \(timeInt)"
         
+        gameMode = 1
+        
         if timeInt == 0 {
             timer.invalidate()
             cardTimer.invalidate()
+            gameMode = 0
         }
     }
     
