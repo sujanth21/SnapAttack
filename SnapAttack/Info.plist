@@ -41,5 +41,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DK Cinnabar Brush.ttf</string>
+		<string>Cheveuxdange.ttf</string>
+	</array>
 </dict>
 </plist>
