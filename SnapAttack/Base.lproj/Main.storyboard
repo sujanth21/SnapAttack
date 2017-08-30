@@ -74,6 +74,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRw-K9-fML"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,6 +109,13 @@
                             <constraint firstItem="j0d-Av-qWn" firstAttribute="width" secondItem="UsL-KI-mrF" secondAttribute="width" id="yDK-Y5-OeI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstCard" destination="Y7n-MI-6MU" id="f92-MK-IoH"/>
+                        <outlet property="scoreLabel" destination="To4-nI-Ckb" id="xo0-3o-Tme"/>
+                        <outlet property="secondCard" destination="j0d-Av-qWn" id="HXi-mw-iSL"/>
+                        <outlet property="startBtn" destination="M7E-Ks-wMN" id="zRb-B3-D1j"/>
+                        <outlet property="timeLabel" destination="UsL-KI-mrF" id="uLC-e7-ufL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
