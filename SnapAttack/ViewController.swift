@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         if timeInt == 20 {
             
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            
+            cardTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCards), userInfo: nil, repeats: true)
         }
         
     }
@@ -48,7 +50,19 @@ class ViewController: UIViewController {
         
         if timeInt == 0 {
             timer.invalidate()
+            cardTimer.invalidate()
         }
+    }
+    
+    @objc func updateCards() {
+        
+        let cards = ["ace_of_hearts", "2_of_hearts", "3_of_hearts", "4_of_hearts", "5_of_hearts", "6_of_hearts", "7_of_hearts", "8_of_hearts", "9_of_hearts", "10_of_hearts"]
+        
+        let random1 = Int(arc4random_uniform(UInt32(cards.count)))
+        firstCard.image = UIImage(named: cards[random1])
+        
+        let random2 = Int(arc4random_uniform(UInt32(cards.count)))
+        secondCard.image = UIImage(named: cards[random2])
     }
     
 }
