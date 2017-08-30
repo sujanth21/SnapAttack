@@ -34,6 +34,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startBtnPressed(_ sender: Any) {
+        
+        if timeInt == 20 {
+            
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        }
+        
+    }
+    
+    @objc func updateTimer() {
+        timeInt -= 1
+        timeLabel.text = "Time: \(timeInt)"
+        
+        if timeInt == 0 {
+            timer.invalidate()
+        }
     }
     
 }
