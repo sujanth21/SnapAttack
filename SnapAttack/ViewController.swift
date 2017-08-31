@@ -40,6 +40,10 @@ class ViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             
             cardTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCards), userInfo: nil, repeats: true)
+            
+            startBtn.isEnabled = false
+            startBtn.alpha = 0.25
+            startBtn.setTitle("Snap", for: .normal)
         }
         
         if gameMode == 1 {
@@ -53,6 +57,18 @@ class ViewController: UIViewController {
             }
         }
         
+        if timeInt == 0 {
+            scoreInt = 0
+            timeInt = 20
+            
+            scoreLabel.text = "Score: \(scoreInt)"
+            timeLabel.text = "Time: \(timeInt)"
+            
+            startBtn.setTitle("Start", for: .normal)
+            firstCard.image = UIImage(named: "blue_cover")
+            secondCard.image = UIImage(named: "blue_cover")
+        }
+        
     }
     
     @objc func updateTimer() {
@@ -61,10 +77,15 @@ class ViewController: UIViewController {
         
         gameMode = 1
         
+        startBtn.isEnabled = true
+        startBtn.alpha = 1.0
+        
         if timeInt == 0 {
             timer.invalidate()
             cardTimer.invalidate()
             gameMode = 0
+            
+            startBtn.setTitle("Restart", for: .normal)
         }
     }
     
